@@ -1,0 +1,27 @@
+{
+  "name": "codebrew",
+  "version": "1.0.0",
+  "description": "Angular Universal, Akita, Ant Design, Tailwind CSS, NextJs Stack Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petruburlacu/codebrew.git"
+  },
+  "keywords": [
+    "angular",
+    "universal",
+    "tailwindcss",
+    "ngzorro",
+    "antdesign",
+    "nextjs"
+  ],
+  "author": "pmburlacu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petruburlacu/codebrew/issues"
+  },
+  "homepage": "https://github.com/petruburlacu/codebrew#readme"
+}
