@@ -19,5 +19,12 @@ module.exports = {
       }
     },
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms')
+  ],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.html', './src/**/*.ts'],
+  }
 }
