@@ -1,0 +1,53 @@
+<header *ngIf="!toggleMobile" class="py-6 sticky top-0 bg-white shadow-sm">
+    <div class="container flex justify-between items-center mx-auto px-8 w-full md:px-14 lg:px-24">
+        <div class="text-lg font-bold py-1 px-2">.co<span class="underline underline-offset-4 decoration-4">deBrew</span></div>
+        <div class="hidden space-x-12 items-center md:flex">
+            <a href="#" class="hover:underline hover:underline-offset-4 hover:decoration-4">Home<span></span></a>
+            <a href="#porfolio" class="hover:underline hover:underline-offset-4 hover:decoration-4">Portfolio</a>
+            <a href="" class="hover:underline hover:underline-offset-4 hover:decoration-4">Blog</a>
+            <a href="#contact">
+                <button class="px-6 py-2 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Contact</button>
+            </a>
+        </div>
+        <div class="md:hidden font-black flex">
+            <button type="button" aria-label="toggle menu" (click)="onNavbarToggle();">
+                <svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 17.5H0.25V14.6667H13V17.5ZM25.75 10.4167H0.25V7.58333H25.75V10.4167ZM25.75 3.33333H13V0.5H25.75V3.33333Z" fill="black" />
+                </svg>
+            </button>
+        </div>       
+    </div>
+</header>
+
+<div *ngIf="toggleMobile" class="container sticky items-center mx-auto px-8 w-full md:px-14 lg:px-24 z-20 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+    <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+      <div class="px-5 pt-4 flex items-center justify-between">
+        <div>
+            <div class="text-lg font-bold py-1 px-2 h-8 w-auto">.co<span class="underline underline-offset-4 decoration-4">deBrew</span></div>
+        </div>
+        <div class="-mr-2">
+          <button type="button" (click)="onNavbarToggle();" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <span class="sr-only">Close main menu</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
+
+        <a href="#porfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Portfolio</a>
+
+        <a href="#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Blog</a>
+
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
+      </div>
+      <a href="#" class="block w-full px-5 py-3 text-center bg-gray-50 hover:bg-gray-800 hover:text-white font-semibold"> Log in </a>
+    </div>
+  </div>
+
+  <button type="button" (click)="scrollToTop();" data-mdb-ripple="true" data-mdb-ripple-color="light" class="inline-block p-3 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-500 hover:shadow-lg active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5" id="btn-back-to-top">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"></path></svg>
+  </button>
