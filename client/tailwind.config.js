@@ -23,8 +23,8 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms')
   ],
-  purge: {
-    enabled: true,
-    content: ['./src/**/*.html', './src/**/*.ts'],
-  }
+  content: [
+    './src/**/*.html', 
+    './src/**/*.ts'
+  ]
 }
