@@ -20,11 +20,11 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms')
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography')
   ],
-  purge: {
-    enabled: true,
-    content: ['./src/**/*.html', './src/**/*.ts'],
-  }
+  content: [
+    './src/**/*.html', 
+    './src/**/*.ts'
+  ]
 }
