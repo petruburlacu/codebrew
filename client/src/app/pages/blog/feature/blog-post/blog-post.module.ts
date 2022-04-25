@@ -1,7 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogPostComponent } from './blog-post.component';
 import { BlogPostRoutingModule } from './blog-post-routing.module';
+import { MarkdownModule } from 'ngx-markdown';
+import { HeaderModule } from 'src/app/shared/ui/header/header.module';
 
 
 
@@ -11,7 +13,9 @@ import { BlogPostRoutingModule } from './blog-post-routing.module';
   ],
   imports: [
     BlogPostRoutingModule,
-    CommonModule
+    CommonModule,
+    HeaderModule,
+    MarkdownModule.forChild(),
   ]
 })
 export class BlogPostModule { }
