@@ -1,1 +1,18 @@
 <app-header></app-header>
+
+<div class="container mt-64 flex justify-between items-center mx-auto px-8 md:px-14 lg:px-24 w-full">
+    <section class="w-full">
+        <table *ngIf="blogPosts">
+            <tr>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+            <tr *ngFor="let post of blogPosts">
+                <td>{{post.attributes.date | date: 'fullDate'}}</td>
+                <td>{{post.attributes.title | titlecase}}</td>
+                <td>{{post.attributes.description}}</td>
+            </tr>
+        </table>
+    </section>
+  </div>
