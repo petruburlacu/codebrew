@@ -22,7 +22,7 @@ export class BlogService {
     return this.http.get<Article[]>(environment.apiUrl + this._articles);
   }
 
-  getArticle() {
-    return this.http.get<Article>(environment.apiUrl + this._articles + '/1');
+  getArticle(articleId: string) {
+    return this.http.get<Article>(environment.apiUrl + this._articles + '/' + articleId);
   }
 }
