@@ -9,20 +9,16 @@ import { BlogPost } from '../models/blog-post';
 })
 export class BlogService {
 
-  private _blogPosts = 'api/blog-posts';
   private _articles = 'api/articles';
+  private _article = 'api/articles?filters[slug]=';
 
   constructor(private http: HttpClient) { }
-
-  getBlogPosts() {
-    return this.http.get<BlogPost[]>(environment.apiUrl + this._blogPosts);
-  }
 
   getArticles() {
     return this.http.get<Article[]>(environment.apiUrl + this._articles);
   }
 
-  getArticle() {
-    return this.http.get<Article>(environment.apiUrl + this._articles + '/1');
+  getArticle(articleSlug: string) {
+    return this.http.get<Article>(environment.apiUrl + this._article + articleSlug);
   }
 }

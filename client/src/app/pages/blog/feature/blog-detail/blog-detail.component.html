@@ -7,11 +7,15 @@
                 <th>Date</th>
                 <th>Title</th>
                 <th>Description</th>
+                <th>Action</th>
             </tr>
             <tr *ngFor="let post of blogPosts">
-                <td>{{post.attributes.date | date: 'fullDate'}}</td>
+                <td>{{post.attributes.published_date | date: 'fullDate'}}</td>
                 <td>{{post.attributes.title | titlecase}}</td>
                 <td>{{post.attributes.description}}</td>
+                <td>
+                    <a [routerLink]="'/blog/' + post.attributes.slug">Link</a>
+                </td>
             </tr>
         </table>
     </section>
