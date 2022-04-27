@@ -10,7 +10,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: ':id',
+    path: ':slug',
     loadChildren: () =>
       import('./../blog-post/blog-post.module').then(
         (m) => m.BlogPostModule

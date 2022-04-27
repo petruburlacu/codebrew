@@ -11,23 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogPostComponent implements OnInit, OnDestroy {
 
   article: any;
-
   ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(private blogService: BlogService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const articleId: string = this.getArticleId();
-    this.getArticleById(articleId);
+    const articleSlug: string = this.getArticleSlug();
+    this.getArticleBySlug(articleSlug);
   }
 
-  getArticleId(): string {
-    return this.route.snapshot.params['id'];
+  getArticleSlug(): string {
+    return this.route.snapshot.params['slug'];
   }
 
-  getArticleById(articleId: string): void {
-    this.blogService.getArticle(articleId).pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
-      this.article = response.data.attributes.content;
+  getArticleBySlug(articleSlug: string): void {
+    this.blogService.getArticle(articleSlug).pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
+      this.article = response.data[0].attributes.content;
     });
   }
 

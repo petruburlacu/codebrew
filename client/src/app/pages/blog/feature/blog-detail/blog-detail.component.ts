@@ -19,7 +19,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.blogService.getBlogPosts().pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
+    this.blogService.getArticles().pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
       this.blogPosts = response.data;
     });
   }
