@@ -17,7 +17,7 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule
