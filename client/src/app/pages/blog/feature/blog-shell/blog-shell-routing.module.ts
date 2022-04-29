@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ArticleResolver } from '../../data-access/article.resolver';
 
 const routes: Routes = [
   {
@@ -15,7 +16,10 @@ const routes: Routes = [
       import('./../blog-post/blog-post.module').then(
         (m) => m.BlogPostModule
       ),
-  } // TODO: Add router guards to prefatch article data
+    resolve: {
+      article: ArticleResolver
+    }
+  }
 ];
 
 @NgModule({
