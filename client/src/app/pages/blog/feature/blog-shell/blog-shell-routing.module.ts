@@ -15,7 +15,7 @@ const routes: Routes = [
       import('./../blog-post/blog-post.module').then(
         (m) => m.BlogPostModule
       ),
-  }
+  } // TODO: Add router guards to prefatch article data
 ];
 
 @NgModule({
