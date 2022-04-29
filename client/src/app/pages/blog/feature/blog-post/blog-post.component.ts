@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { BlogService } from '../../data-access/blog.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,20 +12,15 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   article: any;
   ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(private blogService: BlogService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const articleSlug: string = this.getArticleSlug();
-    this.getArticleBySlug(articleSlug);
+    this.getArticleBySlug();
   }
 
-  getArticleSlug(): string {
-    return this.route.snapshot.params['slug'];
-  }
-
-  getArticleBySlug(articleSlug: string): void {
-    this.blogService.getArticle(articleSlug).pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
-      this.article = response.data[0].attributes.content;
+  getArticleBySlug(): void {
+    this.route.data.pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
+      this.article = response.article.data[0].attributes.content;
     });
   }
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ArticleResolver } from '../../data-access/article.resolver';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
       import('./../blog-post/blog-post.module').then(
         (m) => m.BlogPostModule
       ),
+    resolve: {
+      article: ArticleResolver
+    }
   }
 ];
 

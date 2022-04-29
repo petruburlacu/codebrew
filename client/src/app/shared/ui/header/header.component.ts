@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +12,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   myButton: any;
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
-    this.myButton = document.getElementById("btn-back-to-top");
-    window.addEventListener('scroll', this.scroll, true);
+    if (isPlatformBrowser(this.platformId)) {
+      this.myButton = document.getElementById("btn-back-to-top");
+      window.addEventListener('scroll', this.scroll, true);
+   }
   }
 
   onNavbarToggle(): void {
@@ -23,20 +26,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   scroll = (event: any): void => {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      this.myButton.style.display = "block";
-    } else {
-      this.myButton.style.display = "none";
+    if (isPlatformBrowser(this.platformId)) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        this.myButton.style.display = "block";
+      } else {
+        this.myButton.style.display = "none";
+      }
     }
   }
 
   scrollToTop(): void {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
   }
 
   ngOnDestroy() {
-    window.removeEventListener('scroll', this.scroll, true);
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('scroll', this.scroll, true);
+    }
   }
 
 }
