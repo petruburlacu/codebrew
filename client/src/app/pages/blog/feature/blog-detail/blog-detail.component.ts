@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { BlogService } from '../../data-access/blog.service';
-import { BlogPost } from '../../models/blog-post';
 
 @Component({
   selector: 'app-blog-detail',

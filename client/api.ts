@@ -35,24 +35,23 @@ api.post('/auth/login', async (req, res) => {
   if (!response || !response.jwt) {
     res.sendStatus(401);
   } else {
-    res.cookie('authentication', response.jwt, {
-      maxAge: 600 * 1000,
-      httpOnly: true,
-    });
-    delete response.user.id;
-    res.send(response);
+    const user = {
+      username: response.user.username,
+      email: response.user.email
+    };
+    res.cookie('authentication', response.jwt, { maxAge: 600 * 1000, httpOnly: true, sameSite: 'lax' });
+    res.cookie('authenticatedUser', user, { maxAge: 600 * 1000, httpOnly: true, sameSite: 'lax' });
+    res.send(user);
   }
 });
 
 api.get('/auth/isAuthenticated', (req, res) => {
-  res.status(200).send({authenticated: !!req.cookies.authentication});
+  res.status(200).send(!!req.cookies.authentication);
 });
 
 api.get('/auth/signOut', (req, res) => {
-  res.cookie('authentication', '', {
-    maxAge: -1,
-    httpOnly: true
-  });
+  res.cookie('authentication', '', { maxAge: -1, httpOnly: true, sameSite: 'lax' });
+  res.cookie('authenticatedUser', '', { maxAge: -1, httpOnly: true, sameSite: 'lax' });
   res.status(200).send({status: 'Signed out'});
 });
 

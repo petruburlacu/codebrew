@@ -1,0 +1,19 @@
+<div class="prose dark:prose-invert prose-2xl">
+    <p>USER NOT AUTHENTICATED!</p>
+
+    <button routerLink="/dashboard"> Back</button>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogIn()">
+        <div class="mb-3">
+            <label for="identifier">Identifier</label>
+            <input type="identifier" class="form-control" id="identifier" placeholder="you@example.com" formControlName="identifier" />
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" />
+        </div>
+    
+        <button class="btn btn-primary btn-lg btn-block" type="submit">
+            Log in
+        </button>
+    </form>
+</div>
