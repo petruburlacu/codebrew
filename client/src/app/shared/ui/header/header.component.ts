@@ -1,5 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/pages/authentication/data-access/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +10,21 @@ import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  public isAuthenticated$!: Observable<boolean>;
+
   toggleMobile: boolean = false;
 
   myButton: any;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.myButton = document.getElementById("btn-back-to-top");
       window.addEventListener('scroll', this.scroll, true);
-   }
+    }
+    this.isAuthenticated$ = this.authService.isAuthenticated();
+
   }
 
   onNavbarToggle(): void {
