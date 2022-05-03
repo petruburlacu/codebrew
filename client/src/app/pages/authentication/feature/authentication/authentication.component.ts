@@ -20,10 +20,10 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit(): void {}
 
   public onLogIn() {
-    const login = this.loginForm.get('identifier')?.value;
+    const identifier = this.loginForm.get('identifier')?.value;
     const password = this.loginForm.get('password')?.value;
     this.authService.setRedirectUrl('/dashboard');
-    this.authService.login(login, password);
+    this.authService.login(identifier, password);
   }
 
 }

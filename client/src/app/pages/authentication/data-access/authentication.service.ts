@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   private AUTH_URL = Constants.API_URL + '/auth';
 
-  private currentUser$: Subject<any> = new BehaviorSubject(null as any);
+  private currentUser$: Subject<any> = new BehaviorSubject(null);
 
   private redirectUrl: string = '/';
   private redirectParams: any = null;
@@ -22,15 +22,13 @@ export class AuthenticationService {
   }
 
   private checkCookie(): Observable<any> {
-    return this.http.get<User>(`${this.AUTH_URL}/isAuthenticated`).pipe(
+    return this.http.get<User>(`${this.AUTH_URL}/isAuthenticated`, { withCredentials: true }).pipe(
         tap((user) => this.currentUser$.next(user))
     );
   }
 
   public isAuthenticated(): Observable<boolean> {
-    return this.currentUser$.pipe(map((user) => {
-      return user !== null && user !== false;
-    }));
+    return this.currentUser$.pipe(map((user) => user != null));
   }
 
   public setRedirectUrl(url: string): void {

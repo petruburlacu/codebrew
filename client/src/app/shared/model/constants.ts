@@ -1,3 +1,5 @@
+import { environment } from "src/environments/environment";
+
 export class Constants {
-    public static API_URL: string = 'http://localhost:4200' + '/api';
+    public static API_URL: string = environment.apiUrl + '/api';
 }

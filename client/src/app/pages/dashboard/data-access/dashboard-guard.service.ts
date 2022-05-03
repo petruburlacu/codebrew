@@ -11,14 +11,11 @@ export class DashboardGuardService implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    console.log('Guard')
     return this.authService.isAuthenticated().pipe(
       tap((auth) => {
-        if (!auth) {
+        if (auth === false) {
           this.authService.setRedirectUrl(state.url);
           this.router.navigate(['/authentication']);
-        } else {
-          console.log('User authorized.')
         }
       })
     );

@@ -4,12 +4,12 @@
         <div class="hidden space-x-12 items-center md:flex">
             <a href="#" class="hover:underline hover:underline-offset-4 hover:decoration-4">Home<span></span></a>
             <a href="#porfolio" class="hover:underline hover:underline-offset-4 hover:decoration-4">Portfolio</a>
-            <a href="/blog" class="hover:underline hover:underline-offset-4 hover:decoration-4">Blog</a>
+            <a [routerLink]="['/blog']" class="hover:underline hover:underline-offset-4 hover:decoration-4">Blog</a>
             <a href="#contact" class="hover:underline hover:underline-offset-4 hover:decoration-4">Contact</a>
-            <a *ngIf="isAuthenticated$ | async" href="/dashboard">
+            <a *ngIf="isAuthenticated$ | async" [routerLink]="['/dashboard']">
               <button class="px-6 py-2 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Dashboard</button>
             </a>
-            <a *ngIf="!(isAuthenticated$ | async)" href="/authentication">
+            <a *ngIf="!(isAuthenticated$ | async)" [routerLink]="['/authentication']">
               <button class="px-6 py-2 bg-gray-800 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Log in</button>
             </a>
         </div>
@@ -44,13 +44,13 @@
 
         <a href="#porfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Portfolio</a>
 
-        <a href="#blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Blog</a>
+        <a [routerLink]="['/blog']" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Blog</a>
 
         <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
       </div>
       
-      <a *ngIf="!(isAuthenticated$ | async)" href="/authentication" class="block w-full px-5 py-3 text-center bg-gray-50 hover:bg-gray-800 hover:text-white font-semibold"> Log in </a>
-      <a *ngIf="isAuthenticated$ | async" href="/dashboard" class="block w-full px-5 py-3 text-center bg-gray-50 hover:bg-gray-800 hover:text-white font-semibold"> Dashboard </a>
+      <a *ngIf="!(isAuthenticated$ | async)" [routerLink]="['/authentication']" class="block w-full px-5 py-3 text-center bg-gray-50 hover:bg-gray-800 hover:text-white font-semibold"> Log in </a>
+      <a *ngIf="isAuthenticated$ | async" [routerLink]="['/dashboard']" class="block w-full px-5 py-3 text-center bg-gray-50 hover:bg-gray-800 hover:text-white font-semibold"> Dashboard </a>
     </div>
   </div>
 
