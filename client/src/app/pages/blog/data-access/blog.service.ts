@@ -1,24 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Article } from '../models/article';
-import { BlogPost } from '../models/blog-post';
+import { Article } from '../model/article';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
 
-  private _articles = 'api/articles';
-  private _article = 'api/articles?filters[slug]=';
+  private _articles = '/api/articles';
+  private _article = '/api/articles?filters[slug]=';
 
   constructor(private http: HttpClient) { }
 
   getArticles() {
-    return this.http.get<Article[]>(environment.apiUrl + this._articles);
+    return this.http.get<Article[]>(environment.strapiUrl + this._articles);
   }
 
   getArticle(articleSlug: string) {
-    return this.http.get<Article>(environment.apiUrl + this._article + articleSlug);
+    return this.http.get<Article>(environment.strapiUrl + this._article + articleSlug);
   }
 }
