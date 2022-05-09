@@ -9,6 +9,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 import { api } from './api';
 
+import { LOGGER } from 'logger';
+
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
@@ -16,7 +19,6 @@ export function app(): express.Express {
   const distFolder = join(process.cwd(), 'dist/client/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
-  server.set('/api', api);
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
@@ -46,7 +48,7 @@ function run(): void {
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    LOGGER.info(`Node Express server listening on http://localhost:${port}`);
   });
 }
 

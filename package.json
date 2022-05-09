@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-dependencies": "npm i && cd frontend && npm i",
-    "start:client": "cd frontend && npm start",
-    "build:client": "cd frontend && npm run build",
-    "test:client": "cd frontend && npm run test",
+    "start:client": "cd client && npm serve:ssr",
+    "build:client": "cd client && npm run build:ssr",
+    "test:client": "cd client && npm run test",
     "start": "npm run start:client",
     "build": "npm run build:client"
   },
