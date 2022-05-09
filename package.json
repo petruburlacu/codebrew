@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng run serve:ssr",
-    "build": "ng run build:ssr",
+    "start": "node dist/client/server/main.js",
+    "build": "ng build --prod && && ng run client:server pino-pretty",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run client:serve-ssr",
