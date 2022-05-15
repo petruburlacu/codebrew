@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Constants } from 'src/app/shared/model/constants';
 import { Article } from '../model/article';
 
 @Injectable({
@@ -8,16 +8,16 @@ import { Article } from '../model/article';
 })
 export class BlogService {
 
-  private _articles = '/api/articles';
-  private _article = '/api/articles?filters[slug]=';
+  private _articles = '/articles';
+  private _article = '/articles?slug=';
 
   constructor(private http: HttpClient) { }
 
   getArticles() {
-    return this.http.get<Article[]>(environment.strapiUrl + this._articles);
+    return this.http.get<Article[]>(Constants.API_URL + this._articles);
   }
 
   getArticle(articleSlug: string) {
-    return this.http.get<Article>(environment.strapiUrl + this._article + articleSlug);
+    return this.http.get<Article>(Constants.API_URL + this._article + articleSlug);
   }
 }
