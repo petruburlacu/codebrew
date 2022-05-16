@@ -20,7 +20,9 @@ export class BlogPostComponent implements OnInit, OnDestroy {
 
   getArticleBySlug(): void {
     this.route.data.pipe(takeUntil(this.ngUnsubscribe)).subscribe((response: any) => {
-      this.article = response.article.data[0].attributes.content;
+      if (response && response.article && response.article.data) {
+        this.article = response.article?.data[0].attributes.content;
+      }
     });
   }
 
