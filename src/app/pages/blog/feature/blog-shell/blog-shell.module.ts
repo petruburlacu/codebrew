@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
+import { SeoService } from './../../../../shared/data-access/seo.service';
 import { ArticleResolver } from '../../data-access/article.resolver';
 import { BlogShellRoutingModule } from './blog-shell-routing.module';
 
@@ -11,6 +12,6 @@ import { BlogShellRoutingModule } from './blog-shell-routing.module';
     BlogShellRoutingModule,
     MarkdownModule.forRoot()
   ],
-  providers: [ ArticleResolver ]
+  providers: [ ArticleResolver, SeoService ]
 })
 export class BlogShellModule { }
