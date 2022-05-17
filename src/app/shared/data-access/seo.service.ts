@@ -15,7 +15,7 @@ export class SeoService {
     this.setKeywords(keywords);
     this.setViewport();
     this.setCharset();
-    this.setRobots();
+    // this.setRobots();
   }
 
   private setTitle(titlePart: string): void {

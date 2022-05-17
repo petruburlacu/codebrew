@@ -6,7 +6,6 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>http://www.code-brew.co.uk/</loc>
   <lastmod>2022-05-15T14:58:16+00:00</lastmod>
@@ -18,14 +17,14 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.code-brew.co.uk/authentication</loc>
+  <loc>http://www.code-brew.co.uk/blog/async-pipe-how-to-use-it-properly</loc>
   <lastmod>2022-05-15T14:58:16+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.code-brew.co.uk/blog/first-article</loc>
+  <loc>http://www.code-brew.co.uk/authentication</loc>
   <lastmod>2022-05-15T14:58:16+00:00</lastmod>
-  <priority>0.64</priority>
+  <priority>0.20</priority>
 </url>
 <url>
   <loc>http://www.code-brew.co.uk/dashboard</loc>

@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /favorites/
-Disallow: /login/
+Disallow: /dashboard/
+Disallow: /authentication/
 Disallow: /assets/
 Disallow: /api/
 
